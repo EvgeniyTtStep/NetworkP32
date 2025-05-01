@@ -40,7 +40,6 @@ class AsyncServer
         {
             return;
         }
-
         socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
         socket.Bind(endPoint);
         socket.Listen(10);
