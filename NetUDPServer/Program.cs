@@ -8,18 +8,21 @@ class ProgramServer
     {
         int port = 1111;
         //UdpClient udpClient = new UdpClient(port);
-        Socket udpClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Udp);
+        Socket udpClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
         Console.WriteLine("Server started...");
         
         EndPoint ipEndPoint = new IPEndPoint(IPAddress.Any, port);
         udpClient.Bind(ipEndPoint);
-
+        
         byte[] buffer = new byte[1024];
+
+        Console.ReadKey();
+
         while (true)
         {
             //byte[] buffer = udpClient.Receive(ref ipEndPoint);
             int receiveFrom = udpClient.ReceiveFrom(buffer, ref ipEndPoint);
-            string message = Encoding.ASCII.GetString(buffer);
+            string message = Encoding.ASCII.GetString(buffer, 0, receiveFrom);
             Console.WriteLine("Отримано від клієнта: " + message);
             
             string command = "Сервер отримав: " + message;
