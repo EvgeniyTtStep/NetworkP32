@@ -9,12 +9,12 @@ class ProgramClient
     {
         Console.WriteLine("Starting UDP client");
         //UdpClient udpClient = new UdpClient("127.0.0.1", 1111);
-        Socket udpClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Udp);
+        Socket udpClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
         string message = "Hello from UDP client!";
         byte[] data = Encoding.ASCII.GetBytes(message);
         
         //udpClient.Send(data, data.Length);
-        EndPoint endPoint = new IPEndPoint(IPAddress.Any, 1111);
+        EndPoint endPoint = new IPEndPoint(IPAddress.Loopback, 1111);
         udpClient.SendTo(data, endPoint);
 
         // IPEndPoint remoteEndPoint = null;

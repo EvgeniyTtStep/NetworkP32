@@ -8,15 +8,13 @@ class ProgramServer
     {
         int port = 1111;
         //UdpClient udpClient = new UdpClient(port);
-        Socket udpClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
+        Socket udpClient = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
         Console.WriteLine("Server started...");
         
         EndPoint ipEndPoint = new IPEndPoint(IPAddress.Any, port);
         udpClient.Bind(ipEndPoint);
         
         byte[] buffer = new byte[1024];
-
-        Console.ReadKey();
 
         while (true)
         {
