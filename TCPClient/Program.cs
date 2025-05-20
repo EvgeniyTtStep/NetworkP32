@@ -18,6 +18,8 @@ class TCPClientExample
         string response = Encoding.ASCII.GetString(buffer, 0, bytesRead);
         Console.WriteLine("Відповідь від сервера: " + response);
         
+        Console.ReadKey();
+        
         client.Close();
         stream.Close();
         

@@ -10,7 +10,7 @@ class UDPProgram
 
         UdpClient udpClient = new UdpClient();
 
-        IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8888);
+        IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("239.255.255.250"), 8888);
         udpClient.Connect(endPoint);
 
 

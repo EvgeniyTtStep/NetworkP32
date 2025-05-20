@@ -27,6 +27,8 @@ class TCPServer
             byte[] msgBytes = System.Text.Encoding.UTF8.GetBytes(msg);
             stream.Write(msgBytes, 0, msgBytes.Length);
             
+            Console.ReadKey();
+            
             client.Close();
         }
         

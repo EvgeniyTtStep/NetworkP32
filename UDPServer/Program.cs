@@ -9,8 +9,11 @@ class UDPProgram
     {
         UdpClient server = new UdpClient(8888);
         Console.WriteLine("Server running...");
-        IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 0);
         
+        server.JoinMulticastGroup(IPAddress.Parse("239.255.255.250"));
+        
+        IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 0);
+
         Thread thread = new Thread(() =>
             {
                 while (true)
