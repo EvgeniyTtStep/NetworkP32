@@ -7,7 +7,7 @@ class Program
     static async Task Main()
     {
         using HttpClient client = new HttpClient();
-        var request = new HttpRequestMessage(HttpMethod.Get, "https://www.itstep.org/");
+        var request = new HttpRequestMessage(HttpMethod.Get, "https://sinoptik.ua/pohoda/chernivtsi");
         request.Headers.Add("User-Agent", "C# App");
 
         HttpResponseMessage response = await client.SendAsync(request);
